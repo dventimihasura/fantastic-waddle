@@ -37,5 +37,7 @@ jobs:
           
       - run: npm install hasura-cli
       
-      - run: npx hasura deploy
+      - run: |
+          npx hasura init --endpoint https://included-tah-83-prod.hasura.app --admin-secret bOruXx13rna5ix5lKoPu2yLZvfX7iiRym4yQRc77gJHUyRCBwKF68pl1AGEGNFiK .
+          npx hasura deploy
       
