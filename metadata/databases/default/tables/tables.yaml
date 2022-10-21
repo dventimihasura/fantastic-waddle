@@ -1,1 +1,2 @@
-[]
+- "!include public_email.yaml"
+- "!include public_person.yaml"
