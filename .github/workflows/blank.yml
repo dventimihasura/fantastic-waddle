@@ -15,4 +15,4 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g hasura-cli
-      - run: hasura deploy --endpoint $HASURA_GRAPHQL_ENDPOINT --admin-secret $HASURA_GRAPHQL_ADMIN_SECRET .
+      - run: hasura deploy --endpoint https://included-tah-83-prod.hasura.app --admin-secret bOruXx13rna5ix5lKoPu2yLZvfX7iiRym4yQRc77gJHUyRCBwKF68pl1AGEGNFiK .
