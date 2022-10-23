@@ -1,5 +1,3 @@
-- "!include public_bar.yaml"
-- "!include public_baz.yaml"
 - "!include public_email.yaml"
 - "!include public_foo.yaml"
 - "!include public_person.yaml"
