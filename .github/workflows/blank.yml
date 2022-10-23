@@ -1,20 +1,15 @@
 name: CI
 on:
-  pull_request:
-    branches: [ "main" ]
-    types:
-      - closed    
-  workflow_dispatch:
+  push:
+    branches:
+      - "main"
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: prod
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
       - run: npm install -g hasura-cli
-      - run: echo ${{ secrets.HASURA_GRAPHQL_ENDPOINT }}
-      - run: echo ${{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }}
       - run: hasura deploy --endpoint ${{ secrets.HASURA_GRAPHQL_ENDPOINT }} --admin-secret ${{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }} .
