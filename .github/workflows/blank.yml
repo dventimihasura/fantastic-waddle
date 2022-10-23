@@ -1,15 +1,15 @@
-name: CI
-on:
+name: CI                        # Workflow name (can be anything)
+on:                             # On any push to the main branch
   push:
     branches:
       - "main"
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g hasura-cli
-      - run: hasura deploy --endpoint ${{ secrets.HASURA_GRAPHQL_ENDPOINT }} --admin-secret ${{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }} .
+jobs:                           # Run a job
+  build:                        # called `build`
+    runs-on: ubuntu-latest      # On an Ubuntu VM
+    steps:                      # with these steps
+      - uses: actions/checkout@v3 # checkout the repository
+      - uses: actions/setup-node@v3 # make sure node is set up
+        with:                       # with
+          node-version: '14'        # a particular version
+      - run: npm install -g hasura-cli # then install the hasura CLI globally
+      - run: hasura deploy --endpoint ${{ secrets.HASURA_GRAPHQL_ENDPOINT }} --admin-secret ${{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }} . # then use the hasura CLI to deploy using repository secrets
