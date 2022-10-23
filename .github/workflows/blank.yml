@@ -17,4 +17,4 @@ jobs:
       - run: npm install -g hasura-cli
       - run: echo ${{ secrets.HASURA_GRAPHQL_ENDPOINT }}
       - run: echo ${{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }}
-      - run: hasura deploy --endpoint https://included-tah-83-prod.hasura.app --admin-secret bOruXx13rna5ix5lKoPu2yLZvfX7iiRym4yQRc77gJHUyRCBwKF68pl1AGEGNFiK .
+      - run: hasura deploy --endpoint ${{ secrets.HASURA_GRAPHQL_ENDPOINT }} --admin-secret ${{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }} .
